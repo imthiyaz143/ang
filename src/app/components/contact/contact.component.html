@@ -1,0 +1,8 @@
+
+<h2>Welcome user hit the button to see image</h2>
+<button (click)="fetchImage()">Load Image</button>
+<div *ngIf="imageUrl" class="image-background" [style.backgroundImage]="'url(' + imageUrl + ')'">
+  <!-- Background image is applied to this div -->
+</div>
+
+<h2>{{parentFRom}}</h2>

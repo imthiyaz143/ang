@@ -1,0 +1,536 @@
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Concepts</title>
+  </head>
+  <body>
+    <header>
+      <h1>JavaScript Concepts</h1>
+      <nav>
+        <ul class="head">
+          <li class="nav-item">
+            <a class="nav-link"  routerLink="#Variables" (click)="setActiveSection('variables')">Variables</a>
+          </li>
+          
+          <!-- <li><a href="#variables" >Variables</a></li> -->
+          <li class="nav-item">
+            <a class="nav-link"  routerLink="#Operators" (click)="setActiveSection('Operators')">Operators</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  routerLink="#Hoisting" (click)="setActiveSection('Hoisting')">Hoisting</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  routerLink="#Loops" (click)="setActiveSection('Loops')">Loops</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  routerLink="#Arrays" (click)="setActiveSection('Arrays')">Arrays</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  routerLink="#Objects" (click)="setActiveSection('Objects')">Objects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  routerLink="#Strings" (click)="setActiveSection('Strings')">Strings</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  routerLink="#Closures" (click)="setActiveSection('Closures')">Closures</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  routerLink="#Currying" (click)="setActiveSection('Currying')">Currying</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  routerLink="#This" (click)="setActiveSection('This')">This</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  routerLink="#call&apply" (click)="setActiveSection('call&apply')">call&apply</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  routerLink="#Bind" (click)="setActiveSection('Bind')">Bind</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  routerLink="#Prototype" (click)="setActiveSection('Prototype')">Prototype</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  routerLink="#Promises" (click)="setActiveSection('Promises')">Promises</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  routerLink="#JSON" (click)="setActiveSection('JSON')">JSON</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  routerLink="#LocalStorage" (click)="setActiveSection('LocalStorage')">LocalStorage</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  routerLink="#SessionStorage" (click)="setActiveSection('SessionStorage')">SessionStorage</a>
+          </li>
+         
+
+
+ 
+        </ul>
+       </nav>
+    </header>
+
+    <main>
+      <div [ngSwitch]="activeSection">
+
+      <section  *ngSwitchCase="'variables'">
+        <h2>Variables</h2>
+        <p>Variables in JavaScript are containers for storing data values.</p>
+
+        <div>
+            <label for="value1">Value 1:</label>
+            <input type="number" id="value1" [(ngModel)]="value1" placeholder="enter the value"> 
+            
+            <label for="value2">Value 2:</label>
+            <input type="number" id="value2" [(ngModel)]="value2"  placeholder="enter the value">
+            
+            <button (click)="showVariablesExample()">Show Variables</button>
+          </div>
+          
+          <div id="variablesExample">
+            <!-- Display JavaScript variables dynamically here -->
+            <pre>{{ variablesExample }}</pre>
+          </div>
+      </section>
+
+      <section *ngSwitchCase="'Operators'">
+        <h2>JavaScript Operators</h2>
+        <p>Operators are used to perform operations on variables and values.</p>
+
+        <div>
+            <label for="input1">Input 1:</label>
+            <input type="number"  [(ngModel)]="input1" placeholder="Enter first number">
+            
+            <label for="input2">Input 2:</label>
+            <input type="number"  [(ngModel)]="input2" placeholder="Enter second number">
+            
+            <label for="operator">Operator:</label>
+            <select id="operator" [(ngModel)]="selectedOperator">
+              <option value="+">+</option>
+              <option value="-">-</option>
+              <option value="*">*</option>
+              <option value="/">/</option>
+              <option value="%">%</option>
+              <option value="==">==</option>
+            
+            </select>
+            
+            <button (click)="performOperation()">Perform Operation</button>
+            
+            <p *ngIf="result !== undefined">Result: {{ result }}</p>
+          </div>
+          
+      </section>
+
+      <section *ngSwitchCase="'Hoisting'">
+        
+        <div>
+          <h1>JavaScript Hoisting in Angular</h1>
+          <ul>
+            <button (click)="hoisting()" >showHoisting</button>
+             
+          <div id="output">
+            <!-- Display JavaScript variables dynamically here -->
+            <pre>{{ output }}</pre>
+          </div>
+          </ul>
+        </div>
+      </section>
+
+      <section *ngSwitchCase="'Loops'">
+        <h2>JavaScript Loops</h2>
+        <p>Loops can execute a block of code a number of times.</p>
+
+        <p>enter value it will prints output upto given value</p>
+      
+        <div>
+          <h1>Loop Demo</h1>
+          <label for="inputNumber">Enter a number:</label>
+          <input type="number" id="inputNumber" [(ngModel)]="number" />
+          
+          <label for="loopType">Select loop type:</label>
+          <select id="loopType" [(ngModel)]="loopType">
+            <option value="for">For Loop</option>
+            <option value="while">While Loop</option>
+            <option value="doWhile">Do While Loop</option>
+          </select>
+          
+          <button (click)="displayLoop()">Display Loop</button>
+          
+          <ul id="resultList">
+            <li *ngIf="resultList.length === 1 && (resultList[0])">Please enter a positive number.</li>
+            <li *ngFor="let item of resultList">{{ item }}</li>
+          </ul>
+        </div>
+        
+      </section>
+      <section *ngSwitchCase="'Arrays'">
+        <h2>JavaScript Arrays and Array Methods</h2>
+        <p>
+          Arrays are used to store multiple values in a single variable. Array
+          methods allow us to perform operations on arrays.
+        </p>
+
+
+        
+        <div>
+          <h1>Array Methods Demo</h1>
+          <label for="arrayInput">Enter an array (comma-separated):</label>
+          <input type="text" id="arrayInput" [(ngModel)]="arrayInput" />
+        
+          <label for="arrayMethod">Select array method:</label>
+          <select id="arrayMethod" [(ngModel)]="arrayMethod" (change)="onMethodChange()">
+            <option value="sort">Sort</option>
+            <option value="reverse">Reverse</option>
+            <option value="pop">Pop</option>
+            <option value="push">Push</option>
+            <option value="shift">Shift</option>
+            <option value="unshift">Unshift</option>
+            <option value="map">Map</option>
+            <option value="filter">Filter</option>
+            <option value="forEach">ForEach</option>
+            <option value="find">Find</option>
+            <option value="slice">Slice</option>
+            <option value="splice">Splice</option>
+            <option value="indexOf">IndexOf</option>
+          </select>
+        
+          <div *ngIf="arrayMethod === 'push' || arrayMethod === 'unshift'" id="extraInputContainer">
+            <label for="extraInput">Enter value to add:</label>
+            <input type="text" id="extraInput" [(ngModel)]="extraInput" />
+          </div>
+        
+          <div *ngIf="arrayMethod === 'map' || arrayMethod === 'filter' || arrayMethod === 'find' || arrayMethod === 'indexOf' || arrayMethod === 'slice' || arrayMethod === 'splice'" id="additionalInputContainer">
+            <label for="additionalInput1">Enter value 1:</label>
+            <input type="text" id="additionalInput1" [(ngModel)]="additionalInput1" />
+          </div>
+        
+          <div *ngIf="arrayMethod === 'slice' || arrayMethod === 'splice'" id="additionalInput2Container">
+            <label for="additionalInput2">Enter value 2:</label>
+            <input type="text" id="additionalInput2" [(ngModel)]="additionalInput2" />
+          </div>
+        
+          <button (click)="applyArrayMethod()">Apply Method</button>
+<!--         
+          <h2>Original Array:</h2>
+          <p id="originalArray">{{ originalArray | json }}</p> -->
+        
+          <p>Result Array:</p>
+          <p id="resultArray">{{ resultArray | json }}</p>
+        </div>
+        
+      </section>
+
+      <section  *ngSwitchCase="'Objects'">
+        <h2>JavaScript Objects and Object Methods</h2>
+        <p>
+          Objects are collections of properties, and a property is an
+          association between a name (or key) and a value.
+        </p>
+
+       
+
+         <div>
+          <label for="objectProperties">Object Properties (key:value, ...):</label>
+          <input id="objectProperties" [(ngModel)]="objectProperties" />
+        
+          <label for="objectMethod">Object Method:</label>
+          <select id="objectMethod" [(ngModel)]="objectMethod">
+            <option value="keys">keys</option>
+            <option value="values">values</option>
+            <option value="entries">entries</option>
+            <option value="hasOwnProperty">hasOwnProperty</option>
+          </select>
+        
+          <div *ngIf="objectMethod === 'hasOwnProperty'">
+            <label for="extraInput1">Property to check:</label>
+            <input id="extraInput1" [(ngModel)]="extraInput1" />
+          </div>
+        
+          <button (click)="applyObjectMethod()">Apply Method</button>
+        
+          <h3>Original Object:</h3>
+          <pre id="originalObject">{{ originalObject | json }}</pre>
+        
+          <h3>Result:</h3>
+          <pre id="resultObject">{{ result1 | json  }}</pre>
+        </div>
+        
+      </section>
+
+      <section *ngSwitchCase="'Strings'">
+        <h2>JavaScript Strings and Methods</h2>
+        <p>
+          Strings are used to store text. String methods allow us to perform
+          operations on strings.
+        </p>
+
+       
+            <div>
+              <label for="stringInput">Enter String:</label>
+              <input id="stringInput" [(ngModel)]="stringInput" />
+            
+              <label for="stringMethod">Choose String Method:</label>
+              <select id="stringMethod" [(ngModel)]="stringMethod" (change)="onMethodChange1()">
+                <option value="toUpperCase">toUpperCase</option>
+                <option value="toLowerCase">toLowerCase</option>
+                <option value="charAt">charAt</option>
+                <option value="length">length</option>
+                <option value="trim">trim</option>
+                <option value="split">split</option>
+                <option value="reverse">reverse</option>
+                <option value="includes">includes</option>
+                <option value="replace">replace</option>
+              </select>
+            
+              <div id="extraInputContainer">
+                <input *ngIf="showExtraInput" type="text" [(ngModel)]="extraInput2" placeholder="Enter parameter" />
+                <div *ngIf="showReplaceInputs">
+                  <input type="text" [(ngModel)]="extraInputOld" placeholder="Enter old substring" />
+                  <input type="text" [(ngModel)]="extraInputNew" placeholder="Enter new substring" />
+                </div>
+              </div>
+            
+              <button (click)="applyStringMethod()">Apply Method</button>
+            
+              <div>
+                <p>Original String: {{ originalString }}</p>
+                <p>Result String: {{ resultString }}</p>
+              </div>
+            </div>
+            
+      
+      </section>
+
+      <section *ngSwitchCase="'Closures'">
+        
+        <h2>JavaScript Closures</h2>
+
+    <p>Enter a starting value for the closure counter and click "Create Closure".</p>
+      
+        <div>
+          <label for="initialValue">Enter Initial Value:</label>
+          <input id="initialValue" [(ngModel)]="initialValue" type="number" />
+        
+          <button id="createClosureButton" (click)="createClosure()">Create Closure</button>
+          <div id="closureMessage">{{ closureMessage }}</div>
+        
+          <button id="incrementButton" (click)="increment()" [style.display]="closureFunction ? 'inline-block' : 'none'">
+            Increment
+          </button>
+          <div id="closureResult">{{ closureResult }}</div>
+        </div>
+        
+
+       
+      </section>
+
+
+
+      <section *ngSwitchCase="'Currying'">
+        <h2>JavaScript Currying</h2>
+        <p>
+          Currying is the technique of converting a function that takes multiple
+          arguments into a sequence of functions that each take a single
+          argument.
+        </p>
+
+        <div>
+          <label for="numberInput">Enter Number:</label>
+          <input id="numberInput" [(ngModel)]="numberInput" />
+        
+          <button id="addNumberButton" (click)="addNumber()">Add Number</button>
+        
+          <div id="curryingResult">{{ curryingResult }}</div>
+        </div>
+        
+      </section>
+
+      <section *ngSwitchCase="'This'">
+        <!-- <h2>this Keyword</h2> -->
+        <h2>JavaScript this Keyword Example</h2>
+        <p>press the button to call name of the person </p>
+      
+        
+        <div>
+          <label for="nameInput">Enter Name:</label>
+          <input id="nameInput" [(ngModel)]="person.name" />
+        
+          <button (click)="thisKeywordExample()">Show Greeting</button>
+          <div id="this-output">{{ output1 }}</div>
+        </div>
+        
+        
+    </section>
+
+    <section *ngSwitchCase="'call&apply'">
+      <h2>Call & apply methods in javascript</h2>
+      <p>     in javascript the call() and apply() methods are used for reuse the code
+      </p>
+    
+        <div>
+          <label for="fnameInput">Enter First Name:</label>
+          <input id="fnameInput" [(ngModel)]="person1.fname" />
+        
+          <label for="lnameInput">Enter Last Name:</label>
+          <input id="lnameInput" [(ngModel)]="person1.lname" />
+        
+          <button (click)="callAndApply()">Show Full Names</button>
+        
+          <div>
+            <p>Using call(): {{ output2 }}</p>
+            <p>Using apply(): {{ output3 }}</p>
+          </div>
+        </div>
+        
+
+  </section>
+
+
+  <section *ngSwitchCase="'Bind'">
+    <h2>bind Method</h2>
+   <p>the bind() method can created a new function of passing method of an object to a new object</p>
+
+    <div>
+      <label for="firstNameInput">Enter First Name:</label>
+      <input id="firstNameInput" [(ngModel)]="person2.firstName" />
+    
+      <label for="lastNameInput">Enter Last Name:</label>
+      <input id="lastNameInput" [(ngModel)]="person2.lastName" />
+    
+      <button (click)="bindMethodExample()">Show Full Name</button>
+      <div id="bind-output">{{ output4 }}</div>
+    </div>
+    
+</section>
+
+<section *ngSwitchCase="'Prototype'">
+  <h2>Prototype Method</h2>
+  <p>Enter a name to create a new Person and click "Create Person".</p>
+  
+
+  <div>
+    <label for="nameInput">Enter Name:</label>
+    <input id="nameInput" [(ngModel)]="name" />
+  
+    <button (click)="createPerson()">Create Person</button>
+    <div>{{ prototypeMessage }}</div>
+  
+    <button (click)="greet()" [style.display]="greetButtonVisible ? 'inline-block' : 'none'">Greet</button>
+    <div>{{ greetResult }}</div>
+  </div>
+  
+</section>
+
+<section *ngSwitchCase="'Promises'">
+
+   <h2>JavaScript Promises</h2>
+   <p>Enter a number and click "Start Process" to see a Promise in action (number will multiply by 2).</p>
+  
+   <!-- <input type="number" id="num" placeholder="Enter a number">
+   <button id="startProcessButton" class="button">Start </button>
+   <p id="promiseResult"></p> -->
+
+   <!-- <div> -->
+  <!-- <label for="numInput">Enter Number:</label>
+  <input id="numInput" [(ngModel)]="number" type="number" />
+
+  <button (click)="startProcess()">Start Process</button>
+  <div>{{ promiseResult }}</div>
+</div> -->
+<!-- <div>
+  <input id="num" type="number" placeholder="Enter a number" />
+  <button id="startProcessButton">Start Process</button>
+  <p id="promiseResult"></p>
+</div>
+ -->
+
+ <!-- <div>
+  <input type="number" [(ngModel)]="numberInput" placeholder="Enter a number" />
+  <select [(ngModel)]="caseType">
+    <option value="double">Double</option>
+    <option value="square">Square</option>
+    <option value="cube">Cube</option>
+  </select>
+  <button (click)="startProcess()">Start Process</button>
+  <p>{{ promiseResult }}</p>
+</div> -->
+<!-- <div class="container">
+  <h2>JavaScript Promises in Angular</h2>
+  <input type="text" [(ngModel)]="inputValue" placeholder="Enter some input" />
+  <button (click)="handlePromise()">Submit</button>
+  <p>{{ promiseResult }}</p>
+</div> -->
+
+
+
+
+   
+  
+</section>
+
+  <section *ngSwitchCase="'JSON'">
+    <h2>Enter JSON Data</h2>
+    <p>Click the "Display" button to parse the input and display the data in a table.
+    </p>
+    <!-- <form id="dataForm">
+        <label for="jsonData">JSON Data:</label>
+        <input id="jsonData" name="jsonData" rows="5" required>
+        <button type="submit">Display</button>
+    </form>
+     <p>Result :</p>
+    <table id="dataTable">
+        <thead>
+            <tr id="tableHeader"></tr>
+        </thead>
+        <tbody></tbody>
+    </table> -->
+
+    <!-- <div> -->
+      <!-- <form (click)="onSubmit1()" #dataForm="ngForm">
+        <label for="jsonData">Enter JSON Array:</label>
+        <textarea id="jsonData" name="jsonData" [(ngModel)]="jsonData" rows="4" cols="50"></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    
+      <table>
+        <thead>
+          <tr id="tableHeader">
+            <th *ngFor="let header of tableHeaders">{{ header }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of tableData">
+            <td *ngFor="let header of tableHeaders">{{ row[header] }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div> -->
+    
+</section>
+
+  <section *ngSwitchCase="'LocalStorage'">
+    
+    <h2>LocalStorage</h2>
+    <p>The localStorage object allows you to save key/value pairs in the browser.  </p>
+<p>The localStorage object stores data with no end date.
+  The data is not deleted when the browser is closed, and are available for future sessions.</p>    
+  <input type="text" id="name">
+    <button onclick="get()">addname</button>
+    <p>stored name :     <span id="demo"></span></p>
+
+  </section>
+
+    <section *ngSwitchCase="'SessionStorage'">
+      <h2>SessionStorage</h2>
+<p>The sessionStorage object stores data for only one session</p><p>The sessionStorage object stores data for only one session.
+
+  (The data is deleted when the browser is closed).</p>     
+ <input type="text" id="name1">
+      <button onclick="getses()">add</button>
+      <pre>stored name :<span id="demo1"></span></pre>
+
+    </section>
+    </div>
+    </main>
+    
+  </body>
